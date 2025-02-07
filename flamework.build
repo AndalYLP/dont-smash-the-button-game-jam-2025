@@ -1,8 +1,0 @@
-{
-	"version": 1,
-	"flameworkVersion": "1.2.3",
-	"identifiers": {
-		"dont-smash-the-button-game-jam-2025:out/shared/functions/logger@LogEventSFTOutputSink": "shared/functions/logger@LogEventSFTOutputSink"
-	},
-	"metadata": {}
-}
