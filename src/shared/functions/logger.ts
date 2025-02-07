@@ -4,7 +4,7 @@ import { MessageTemplateParser, PlainTextMessageTemplateRenderer } from "@rbxts/
 
 import { IS_CLIENT } from "shared/constants/core";
 
-export const LOG_LEVEL: LogLevel = LogLevel.Information;
+export const LOG_LEVEL: LogLevel = LogLevel.Debugging;
 
 const environment = IS_CLIENT ? "Client" : "Server";
 
