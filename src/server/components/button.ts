@@ -10,9 +10,14 @@ interface ButtonModel extends Model {
 
 @Component({
 	tag: "Button",
+	defaults: {
+		clicked: false,
+	},
 })
-export class ButtonComponent extends BaseComponent<object, ButtonModel> implements OnStart {
-	private clicked = false;
+export class ButtonComponent
+	extends BaseComponent<{ clicked: boolean }, ButtonModel>
+	implements OnStart
+{
 	private readonly clicker!: ClickDetector;
 
 	constructor(private readonly logger: Logger) {
@@ -23,7 +28,7 @@ export class ButtonComponent extends BaseComponent<object, ButtonModel> implemen
 	}
 
 	private moveButton(direction: "in" | "out"): void {
-		this.clicked = direction === "in";
+		this.attributes.clicked = direction === "in";
 
 		const { HitBox, Button } = this.instance;
 
@@ -34,11 +39,7 @@ export class ButtonComponent extends BaseComponent<object, ButtonModel> implemen
 		HitBox.PivotTo(newLocation);
 	}
 
-	private onClick(player: Player): void {
-		if (this.clicked) return;
-
-		this.logger.Info(`player ${player.UserId} clicked the button.`);
-
+	private onClick(_player: Player): void {
 		this.moveButton("in");
 		this.instance.SFX.Play();
 
@@ -48,6 +49,10 @@ export class ButtonComponent extends BaseComponent<object, ButtonModel> implemen
 
 	public onStart(): void {
 		this.clicker.MouseClick.Connect(player => {
+			if (this.attributes.clicked) return;
+
+			this.logger.Info(`player ${player.UserId} clicked the button.`);
+
 			this.onClick(player);
 		});
 	}
