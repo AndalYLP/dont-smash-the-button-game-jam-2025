@@ -41,6 +41,9 @@ importers:
       '@rbxts/t':
         specifier: ^3.1.1
         version: 3.1.1
+      '@rbxts/validate-tree':
+        specifier: 2.0.2
+        version: 2.0.2
       rbxts-transformer-flamework:
         specifier: ^1.2.3
         version: 1.2.3(typescript@5.7.3)
@@ -209,6 +212,9 @@ packages:
 
   '@rbxts/types@1.0.813':
     resolution: {integrity: sha512-Qpsmqnl+TNdl5AYqKFkYHyUrv652r30qK6A3GObOyDz+cvn8i+HE61mO021oq0nu1FcA4pMHbYqLSbv2CMF9Ig==}
+
+  '@rbxts/validate-tree@2.0.2':
+    resolution: {integrity: sha512-OA0E9ZjEeOpPa3XeV5/oC51aro2QFcL5dItufbagYZW8TOsX8C+FDXLx+A/ulMwcF42WcFNcQybxzcWSS/QSrA==}
 
   '@roblox-ts/luau-ast@2.0.0':
     resolution: {integrity: sha512-cmMi093IdwBOLVxwuordhM8AmtbyTIyRpsTbB0D/JauidW4SXsQRQowSwWjHo4QP0DRJBXvOIlxtqEQi50uNzQ==}
@@ -1086,6 +1092,8 @@ snapshots:
   '@rbxts/t@3.1.1': {}
 
   '@rbxts/types@1.0.813': {}
+
+  '@rbxts/validate-tree@2.0.2': {}
 
   '@roblox-ts/luau-ast@2.0.0': {}
 
