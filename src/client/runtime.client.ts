@@ -15,5 +15,5 @@ async function start() {
 }
 
 start().catch(err => {
-		Log.Fatal(`Error while running client: ${err}`);
-	});
+	Log.Fatal(`Error while running client: ${err}`);
+});

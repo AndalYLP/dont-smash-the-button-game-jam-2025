@@ -64,9 +64,6 @@ class LogEventSFTOutputSink implements ILogEventSink {
 /** Sets up the logger for the application, for both the client and server. */
 export function setupLogger(): void {
 	Log.SetLogger(
-		Logger.configure()
-			.SetMinLogLevel(LOG_LEVEL)
-			.WriteTo(new LogEventSFTOutputSink())
-			.Create(),
+		Logger.configure().SetMinLogLevel(LOG_LEVEL).WriteTo(new LogEventSFTOutputSink()).Create(),
 	);
 }

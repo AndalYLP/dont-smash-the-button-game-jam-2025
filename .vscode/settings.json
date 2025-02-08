@@ -1,14 +1,16 @@
 {
 	"typescript.tsdk": "node_modules/typescript/lib",
 	"files.eol": "\n",
-	"[typescript]": {
-		"editor.defaultFormatter": "dbaeumer.vscode-eslint",
-		"editor.formatOnSave": true
-	},
-	"[typescriptreact]": {
-		"editor.defaultFormatter": "dbaeumer.vscode-eslint",
-		"editor.formatOnSave": true
-	},
 	"eslint.run": "onType",
-	"eslint.format.enable": true
+	"eslint.format.enable": true,
+	"editor.formatOnSave": true,
+	"typescript.preferences.importModuleSpecifier": "non-relative",
+	"typescript.preferences.quoteStyle": "double",
+	"eslint.validate": [
+		"typescript",
+		"markdown",
+		"json",
+		"jsonc",
+		"yaml",
+	]
 }

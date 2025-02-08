@@ -30,6 +30,8 @@
     "@rbxts/log": "^0.6.3",
     "@rbxts/message-templates": "^0.3.2",
     "@rbxts/services": "^1.5.5",
+    "@rbxts/signal": "^1.1.1",
+    "@rbxts/t": "^3.1.1",
     "rbxts-transformer-flamework": "^1.2.3"
   }
 }
