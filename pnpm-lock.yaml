@@ -17,15 +17,24 @@ importers:
       '@flamework/networking':
         specifier: ^1.2.3
         version: 1.2.3(@flamework/core@1.2.3)
+      '@rbxts/flamework-binary-serializer':
+        specifier: 0.6.0
+        version: 0.6.0(@flamework/core@1.2.3)(rbxts-transformer-flamework@1.2.3(typescript@5.7.3))
       '@rbxts/log':
         specifier: ^0.6.3
         version: 0.6.3
       '@rbxts/message-templates':
         specifier: ^0.3.2
         version: 0.3.2
+      '@rbxts/reflex':
+        specifier: 4.3.1
+        version: 4.3.1
       '@rbxts/services':
         specifier: ^1.5.5
         version: 1.5.5
+      '@rbxts/sift':
+        specifier: 0.0.9
+        version: 0.0.9
       '@rbxts/signal':
         specifier: ^1.1.1
         version: 1.1.1
@@ -162,6 +171,12 @@ packages:
   '@rbxts/compiler-types@3.0.0-types.0':
     resolution: {integrity: sha512-VGOHJPoL7+56NTatMGqQj3K7xWuzEV+aP4QD5vZiHu+bcff3kiTmtoadaF6NkJrmwfFAvbsd4Dg764ZjWNceag==}
 
+  '@rbxts/flamework-binary-serializer@0.6.0':
+    resolution: {integrity: sha512-tB6zoE0PCJ6DLQCCNvzOe75pLnhp8eq8YmpQQAALq9fqsSW+zXEAnY5tawCvJkJOApKcMQBhBDAGhpazGaRFgg==}
+    peerDependencies:
+      '@flamework/core': '*'
+      rbxts-transformer-flamework: '*'
+
   '@rbxts/log@0.6.3':
     resolution: {integrity: sha512-YZpDvjL7yif9aYuNAkuM9vnegcwQmOwX0CfvGfWvrzCpmARY4Ey2pTMhoEgxKo36HcdPPi3aLxmcuvn0NHrPPg==}
 
@@ -174,8 +189,14 @@ packages:
   '@rbxts/object-utils@1.0.4':
     resolution: {integrity: sha512-dLLhf022ipV+9i910sOE7kl9losKHoon0WgeerHqVMQA5EYsLUsVT2AxhJuhk8MiDn5oJ2GiFofE/LadY9TpJQ==}
 
+  '@rbxts/reflex@4.3.1':
+    resolution: {integrity: sha512-S5MbEpHKeRh9NWhwGJ789WbUsmlAlpQziWaNK4+kz1EpaaQ7uHQMZAuN1DYl4+QkqmOSuPlj04COwmArBGWH1Q==}
+
   '@rbxts/services@1.5.5':
     resolution: {integrity: sha512-Hu7QH2ecefS60zpakKG3T2vgABydoOJqpSG7nXr59wFAbPk/cA+OcsntYPHUWyHAat0VFGZ5jNZLTLdiqfssvg==}
+
+  '@rbxts/sift@0.0.9':
+    resolution: {integrity: sha512-5Ycw3mSuUYbPT36Zcs6DtsikdlRcBOo2eG7gvM+HW+2L+VD7bU6+txWELZif6nX6DjjXQtYk19do/frTilfbKw==}
 
   '@rbxts/signal@1.1.1':
     resolution: {integrity: sha512-WX+ONE+ld4pG9PvRkR8OgDld9NpaV1RfXyUIw+Q2oXP/5rehkYzvt20NWtrLAP3NhMc5inYInLd+hnufey6nFw==}
@@ -1037,6 +1058,11 @@ snapshots:
 
   '@rbxts/compiler-types@3.0.0-types.0': {}
 
+  '@rbxts/flamework-binary-serializer@0.6.0(@flamework/core@1.2.3)(rbxts-transformer-flamework@1.2.3(typescript@5.7.3))':
+    dependencies:
+      '@flamework/core': 1.2.3
+      rbxts-transformer-flamework: 1.2.3(typescript@5.7.3)
+
   '@rbxts/log@0.6.3':
     dependencies:
       '@rbxts/message-templates': 0.3.2
@@ -1047,7 +1073,11 @@ snapshots:
 
   '@rbxts/object-utils@1.0.4': {}
 
+  '@rbxts/reflex@4.3.1': {}
+
   '@rbxts/services@1.5.5': {}
+
+  '@rbxts/sift@0.0.9': {}
 
   '@rbxts/signal@1.1.1': {}
 

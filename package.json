@@ -27,9 +27,12 @@
     "@flamework/components": "^1.2.3",
     "@flamework/core": "^1.2.3",
     "@flamework/networking": "^1.2.3",
+    "@rbxts/flamework-binary-serializer": "0.6.0",
     "@rbxts/log": "^0.6.3",
     "@rbxts/message-templates": "^0.3.2",
+    "@rbxts/reflex": "4.3.1",
     "@rbxts/services": "^1.5.5",
+    "@rbxts/sift": "0.0.9",
     "@rbxts/signal": "^1.1.1",
     "@rbxts/t": "^3.1.1",
     "rbxts-transformer-flamework": "^1.2.3"
