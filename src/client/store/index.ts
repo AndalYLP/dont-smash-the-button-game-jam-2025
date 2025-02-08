@@ -1,27 +1,10 @@
-import { createBroadcastReceiver, ProducerMiddleware } from "@rbxts/reflex";
-import { events } from "client/network";
-import { IS_EDIT } from "shared/constants/core";
-import { stateSerDes } from "shared/store";
+import { combineProducers, InferState } from "@rbxts/reflex";
+import { slices } from "shared/store";
+import { receiverMiddleware } from "./middleware/receiver";
 
-export function receiverMiddleware(): ProducerMiddleware {
-	// Storybook support
-	if (IS_EDIT) {
-		return () => dispatch => dispatch;
-	}
+export type RootStore = typeof store;
+export type RootState = InferState<RootStore>;
 
-	const receiver = createBroadcastReceiver({
-		start: () => {
-			events.store.start.fire();
-		},
-	});
+export const store = combineProducers({ ...slices });
 
-	events.store.dispatch.connect(actions => {
-		receiver.dispatch(actions);
-	});
-
-	events.store.hydrate.connect(state => {
-		receiver.hydrate(stateSerDes.deserialize(state.buffer, state.blobs));
-	});
-
-	return receiver.middleware;
-}
+store.applyMiddleware(receiverMiddleware());
