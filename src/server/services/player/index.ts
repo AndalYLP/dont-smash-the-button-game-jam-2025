@@ -1,6 +1,5 @@
 import { OnStart, Service } from "@flamework/core";
 import { Logger } from "@rbxts/log";
-import Object from "@rbxts/object-utils";
 import Signal from "@rbxts/signal";
 import { ListenerData, setupLifecycle } from "utils/flamework";
 import { onPlayerAdded } from "utils/player";
@@ -12,17 +11,13 @@ export interface OnPlayerJoin {
 @Service()
 export class PlayerService implements OnStart {
 	private readonly onEntityJoined = new Signal<(player: Player) => void>();
-	private readonly playerEntities = new Map<Player, Player>();
+	private player?: Player;
 	private readonly playerJoinEvents = new Array<ListenerData<OnPlayerJoin>>();
 
 	constructor(private readonly logger: Logger) {}
 
-	public getPlayerEntities(): Array<Player> {
-		return Object.values(this.playerEntities);
-	}
-
-	public getPlayerEntity(player: Player): Player | undefined {
-		return this.playerEntities.get(player);
+	public getPlayer(): Player {
+		return this.player!;
 	}
 
 	/** @ignore */
@@ -37,7 +32,7 @@ export class PlayerService implements OnStart {
 	}
 
 	private async onPlayerJoin(player: Player): Promise<void> {
-		this.playerEntities.set(player, player);
+		this.player = player;
 
 		for (const { id, event } of this.playerJoinEvents) {
 			Promise.defer(() => {
