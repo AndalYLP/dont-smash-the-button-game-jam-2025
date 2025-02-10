@@ -12,7 +12,7 @@ interface OrbitAttributes {
 	tag: "Orbit",
 	defaults: {
 		middle: Vector3.zero,
-		speed: 0.15,
+		speed: 0.5,
 	},
 })
 export class OrbitComponent extends BaseComponent<OrbitAttributes, BasePart> implements OnStart {
