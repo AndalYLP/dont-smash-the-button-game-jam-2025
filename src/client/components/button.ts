@@ -1,7 +1,7 @@
 import { BaseComponent, Component } from "@flamework/components";
 import { OnStart } from "@flamework/core";
 import { Logger } from "@rbxts/log";
-import { SoundService } from "@rbxts/services";
+import { SoundService, Workspace } from "@rbxts/services";
 import Signal from "@rbxts/signal";
 import { DialogController } from "client/controllers/dialog";
 import { ShakeController } from "client/controllers/shake";
@@ -62,6 +62,8 @@ export class ButtonComponent
 	private onClick(): void {
 		this.dialog();
 
+		Workspace.FakeSky.Crack.Transparency = 0;
+		Workspace.FakeSky.Crack1.Transparency = 0;
 		this.shakeController.shakeCamera(5, 0.1, 6);
 		blink.Fire();
 

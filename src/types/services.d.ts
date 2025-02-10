@@ -24,7 +24,10 @@ interface Workspace {
 		"6": BasePart;
 	};
 	SpawnLocation: SpawnLocation;
-	FakeSky: BasePart;
+	FakeSky: BasePart & {
+		Crack: BasePart;
+		Crack1: BasePart;
+	};
 	Fragments: Folder;
 }
 
