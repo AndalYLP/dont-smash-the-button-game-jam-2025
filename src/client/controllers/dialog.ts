@@ -21,6 +21,8 @@ export class DialogController implements OnStart {
 	private startDialog(): void {
 		this.logger.Info("dialog started");
 
+		task.wait(2);
+
 		this.sendDialogWait(
 			1,
 			`Hey ${LocalPlayer.Name}, I finally finished creating this world for you!`,
