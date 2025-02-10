@@ -1,5 +1,5 @@
 import { useDebounceCallback, useEventListener } from "@rbxts/pretty-react-hooks";
-import React, { useState } from "@rbxts/react";
+import React, { useRef, useState } from "@rbxts/react";
 import Signal from "@rbxts/signal";
 
 export const newDialog = new Signal<
@@ -11,7 +11,7 @@ const stopped: Array<number> = [];
 
 export function DialogBox(): React.ReactNode {
 	const [text, setText] = useState("");
-
+	const sound = useRef<Sound>();
 	const [enabled, _setEnabled] = useState(false);
 
 	const setEnabled = useDebounceCallback(
@@ -33,6 +33,7 @@ export function DialogBox(): React.ReactNode {
 		for (const t of eventText.split("")) {
 			text += t;
 			setText(text);
+			sound.current?.Play();
 			task.wait(speed);
 		}
 
@@ -53,6 +54,7 @@ export function DialogBox(): React.ReactNode {
 			AnchorPoint={new Vector2(0, 1)}
 			BackgroundColor3={new Color3()}
 		>
+			<sound SoundId={"rbxassetid://5855422149"} ref={sound} Volume={0.2} />
 			<textlabel
 				TextColor3={new Color3(1, 1, 1)}
 				TextScaled={true}

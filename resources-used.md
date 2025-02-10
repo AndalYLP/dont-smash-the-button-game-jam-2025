@@ -33,6 +33,8 @@ more detailed list [here](./package.json)
 
 - button click sfx: 7969970804 (roblox store)
 - rift sfx: 5033884807 (roblox store)
+- dialog sfx: 5855422149 (roblox store)
+- ring: 7564537285 (roblox store) (it's a pack we only used the one with meshId: 6063631009)
 - sky: 12612655684 (roblox store)
 - ambient post button press: 126822280868789 (roblox store)
 - ambient pre button press: 1843404009 (roblox store)
