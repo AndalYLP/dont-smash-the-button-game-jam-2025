@@ -30,11 +30,11 @@ export class DialogController implements OnStart {
 
 		task.wait(2.5);
 
-		this.sendDialogWait(1, "It’s a bit small, but I hope you like it!", 0.02, true);
+		this.sendDialogWait(1, "It's a bit small, but I hope you like it!", 0.02, true);
 
 		task.wait(2.5);
 
-		this.sendDialogWait(1, "But if you don’t...", 0.08, true);
+		this.sendDialogWait(1, "But if you don't...", 0.08, true);
 
 		task.wait(4);
 
