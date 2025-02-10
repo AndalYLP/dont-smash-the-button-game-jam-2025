@@ -86,6 +86,8 @@ export class GameService {
 		this.setupPlayer(player);
 
 		void this.startRockAttacks(player);
+		void this.startRockAttacks(player);
+		void this.startRandomRockAttack(player);
 		void this.startRandomRockAttack(player);
 		void this.startRandomRockAttack(player);
 	}
