@@ -38,7 +38,8 @@ export class RiftComponent extends BaseComponent<object, RiftModel> implements O
 			const { HumanoidRootPart, Humanoid } = this.characterService.getCharacterRig()!;
 
 			if (this.isRealRift) {
-				player.Kick("You won, sorry no time to make a better final, thanks for playing!!!");
+				this.gameService.Stop(player);
+				//player.Kick("You won, sorry no time to make a better final, thanks for playing!!!");
 				return;
 			}
 

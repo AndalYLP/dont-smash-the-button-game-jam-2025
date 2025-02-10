@@ -3,6 +3,7 @@ import { createPortal, createRoot } from "@rbxts/react-roblox";
 import { PLAYER_GUI } from "client/constants/player";
 import { Blink } from "client/ui/components/blink";
 import { DialogBox } from "client/ui/components/dialog";
+import { End } from "client/ui/components/end";
 import { Layer } from "client/ui/components/layer";
 
 function App(): React.ReactNode {
@@ -11,6 +12,7 @@ function App(): React.ReactNode {
 			<Layer>
 				<Blink />
 				<DialogBox />
+				<End />
 			</Layer>
 		</>
 	);

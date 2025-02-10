@@ -18,6 +18,7 @@ interface ServerToClientEvents {
 	};
 	game: {
 		dialog: (dialogId: number, text: string, speed: number, continues?: boolean) => void;
+		end: (record: number) => void;
 	};
 }
 

@@ -1,10 +1,14 @@
 import { Service } from "@flamework/core";
-import { Lighting, Workspace } from "@rbxts/services";
+import { DataStoreService, Lighting, Workspace } from "@rbxts/services";
 import Signal from "@rbxts/signal";
+import { events } from "server/network";
 import { RiftService } from "server/services/game/rift-service";
 import { RockService } from "server/services/game/rock/service";
 import { CharacterService } from "server/services/player/character";
 import { store } from "server/store";
+import { selectPlayerBalance } from "shared/store/slices/player/balance/balance.selectors";
+
+const dataStore = DataStoreService.GetDataStore("records");
 
 @Service()
 export class GameService {
@@ -16,6 +20,21 @@ export class GameService {
 		private readonly characterService: CharacterService,
 		private readonly riftService: RiftService,
 	) {}
+
+	public sendDialogWait(
+		player: Player,
+		dialogId: number,
+		text: string,
+		time: number,
+		continues?: boolean,
+	): void {
+		const amount = text.size() + 1;
+		const totalTime = amount * time;
+
+		events.game.dialog(player, dialogId, text, time, continues);
+
+		task.wait(totalTime);
+	}
 
 	private setupNewSpace(): void {
 		this.changeFragmentSize.Fire();
@@ -76,6 +95,46 @@ export class GameService {
 					.launch();
 			});
 		}
+	}
+
+	public Stop(player: Player): void {
+		this.started = false;
+
+		for (const part of Workspace.GetDescendants()) {
+			task.defer(() => {
+				if (part.IsA("BasePart")) {
+					if (part.Name.find("Rock")[0] === 1) {
+						part.Destroy();
+					}
+
+					part.Anchored = true;
+					for (const tag of part.GetTags()) part.RemoveTag(tag);
+				}
+			});
+		}
+
+		this.sendDialogWait(player, 4, "...", 0.02, true);
+
+		task.wait(3);
+
+		this.sendDialogWait(player, 4, "You found it...", 0.02, true);
+
+		task.wait(3);
+
+		this.sendDialogWait(player, 4, "Just go...", 0.02, true);
+
+		task.wait(1);
+
+		const points = store.getState(selectPlayerBalance(player))?.points ?? 0;
+
+		let result = dataStore.GetAsync(`${player.UserId}`)[0] as number | undefined;
+
+		if (!result || result > points) {
+			dataStore.SetAsync(`${player.UserId}`, points);
+			result = points;
+		}
+
+		events.game.end(player, result);
 	}
 
 	public Start(player: Player): void {
