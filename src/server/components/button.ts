@@ -1,6 +1,7 @@
 import { BaseComponent, Component } from "@flamework/components";
 import { OnStart } from "@flamework/core";
 import { Logger } from "@rbxts/log";
+import { events } from "server/network";
 import { GameService } from "server/services/game";
 
 interface ButtonModel extends Model {
@@ -48,10 +49,13 @@ export class ButtonComponent
 		this.instance.SFX.Play();
 
 		task.wait(1);
-		this.gameService.Start(player);
+		const connection = events.game.ready.connect(() => {
+			this.gameService.Start(player);
 
-		task.wait(5);
-		this.moveButton("out");
+			task.wait(5);
+			this.moveButton("out");
+			connection.Disconnect();
+		});
 	}
 
 	public onStart(): void {

@@ -57,6 +57,7 @@ export class GameService {
 
 	private async startRockAttacks(player: Player): Promise<void> {
 		while (task.wait(math.random(30, 50) / 10)) {
+			if (!this.started) break;
 			task.defer(() => {
 				this.rockService.getRandomRock(player).launch();
 			});
@@ -65,6 +66,7 @@ export class GameService {
 
 	private async startRandomRockAttack(player: Player) {
 		while (task.wait(math.random(20, 45) / 10)) {
+			if (!this.started) break;
 			task.defer(() => {
 				this.rockService
 					.getRandomRock(
@@ -87,6 +89,9 @@ export class GameService {
 
 		void this.startRockAttacks(player);
 		void this.startRockAttacks(player);
+		void this.startRockAttacks(player);
+		void this.startRandomRockAttack(player);
+		void this.startRandomRockAttack(player);
 		void this.startRandomRockAttack(player);
 		void this.startRandomRockAttack(player);
 		void this.startRandomRockAttack(player);

@@ -6,6 +6,9 @@ interface ClientToServerEvents {
 	store: {
 		start: () => void;
 	};
+	game: {
+		ready: () => void;
+	};
 }
 
 interface ServerToClientEvents {
