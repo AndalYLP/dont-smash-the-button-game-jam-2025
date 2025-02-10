@@ -23,22 +23,22 @@ export class DialogController implements OnStart {
 
 		this.sendDialogWait(
 			1,
-			`Hi ${LocalPlayer.Name}, I finally completed the world for you.`,
+			`Hey ${LocalPlayer.Name}, I finally finished creating this world for you!`,
 			0.02,
 			true,
 		);
 
-		task.wait(3);
+		task.wait(2.5);
 
-		this.sendDialogWait(1, "It's a bit small but im sure you like it.", 0.02, true);
+		this.sendDialogWait(1, "It’s a bit small, but I hope you like it!", 0.02, true);
 
-		task.wait(3);
+		task.wait(2.5);
 
-		this.sendDialogWait(1, "But if you don't...", 0.1, true);
+		this.sendDialogWait(1, "But if you don’t...", 0.08, true);
 
-		task.wait(5);
+		task.wait(4);
 
-		this.sendDialogWait(1, "You can always press the red button to let me know 😊", 0.02);
+		this.sendDialogWait(1, "You can always press the red button to let me know! 😊", 0.02);
 	}
 
 	public onStart(): void {
