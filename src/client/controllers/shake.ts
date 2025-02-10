@@ -7,7 +7,7 @@ export class ShakeController {
 	private readonly originalOffset: Vector3;
 
 	constructor() {
-		LocalPlayer.CharacterAdded.Wait();
+		if (!LocalPlayer.Character) LocalPlayer.CharacterAdded.Wait();
 
 		this.humanoid = LocalPlayer.Character?.WaitForChild("Humanoid") as Humanoid;
 		this.originalOffset = this.humanoid.CameraOffset;
