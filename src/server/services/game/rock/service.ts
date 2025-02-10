@@ -11,7 +11,7 @@ export class RockService {
 
 		const instance = this.rockFolder[rockId].Clone();
 		instance.Size = instance.Size.mul(
-			target ? math.random(8, 17) / 10 : math.random(7, 14) / 10,
+			target ? math.random(7, 15) / 10 : math.random(6, 12) / 10,
 		);
 
 		return new Rock(targetPlayer, instance, target);
