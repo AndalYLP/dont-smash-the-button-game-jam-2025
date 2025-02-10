@@ -6,6 +6,9 @@ import coreCall from "utils/core-call";
 async function start() {
 	setupLogger();
 	coreCall("SetCore", "ResetButtonCallback", false);
+	coreCall("SetCoreGuiEnabled", Enum.CoreGuiType.Backpack, false);
+	coreCall("SetCoreGuiEnabled", Enum.CoreGuiType.Chat, false);
+	coreCall("SetCoreGuiEnabled", Enum.CoreGuiType.PlayerList, false);
 
 	Modding.registerDependency<Logger>(ctor => Log.ForContext(ctor));
 
