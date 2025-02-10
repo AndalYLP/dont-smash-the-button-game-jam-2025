@@ -54,8 +54,17 @@ export class ButtonComponent
 		task.wait(3);
 
 		this.dialogController.sendDialogWait(2, "Good luck, you will need it.", 0.02);
+	}
 
-		task.wait(3);
+	private onClick(): void {
+		this.dialog();
+
+		this.shakeController.shakeCamera(5, 0.1, 6);
+		blink.Fire();
+
+		events.game.ready();
+
+		task.wait(10);
 
 		this.dialogController.sendDialogWait(
 			3,
@@ -67,15 +76,6 @@ export class ButtonComponent
 		task.wait(2);
 
 		this.dialogController.sendDialogWait(3, "You will need to find the real portal.", 0.02);
-	}
-
-	private onClick(): void {
-		this.dialog();
-
-		this.shakeController.shakeCamera(5, 0.1, 6);
-		blink.Fire();
-
-		events.game.ready();
 	}
 
 	public onStart(): void {
