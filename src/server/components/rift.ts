@@ -1,6 +1,7 @@
 import { BaseComponent, Component } from "@flamework/components";
 import { OnStart } from "@flamework/core";
 import { Players, Workspace } from "@rbxts/services";
+import { FragmentComponent } from "server/components/fragment";
 import { GameService } from "server/services/game";
 import { RiftService } from "server/services/game/rift-service";
 import { PlayerService } from "server/services/player";
@@ -40,6 +41,12 @@ export class RiftComponent extends BaseComponent<object, RiftModel> implements O
 				player.Kick("You won, sorry no time to make a better final, thanks for playing!!!");
 				return;
 			}
+
+			FragmentComponent.maxScale -= 0.4;
+			FragmentComponent.minScale -= 0.1;
+
+			Humanoid.WalkSpeed += 3;
+			Humanoid.JumpHeight += 5;
 
 			this.gameService.changeFragmentSize.Fire();
 			Humanoid.TakeDamage(5);
