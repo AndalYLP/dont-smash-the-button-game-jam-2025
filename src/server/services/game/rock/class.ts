@@ -43,13 +43,15 @@ export class Rock {
 		this.instance.Parent = Workspace;
 
 		const target =
-			this.target ?? this.character.HumanoidRootPart.CFrame.mul(new CFrame(30, -30, 0));
+			this.target ?? this.character.HumanoidRootPart.CFrame.mul(new CFrame(5, -5, 0));
 
 		this.instance.CFrame = CFrame.lookAt(this.instance.Position, target.Position);
 
-		for (let i = 0; i <= 400; i++) {
-			this.instance.Position = this.instance.CFrame.Lerp(target, i / 400).Position;
-			task.wait(0.015);
+		const initialCFrame = this.instance.CFrame;
+
+		for (let i = 0; i <= 200; i++) {
+			this.instance.Position = initialCFrame.Lerp(target, i / 200).Position;
+			task.wait();
 		}
 
 		this.instance.Destroy();
