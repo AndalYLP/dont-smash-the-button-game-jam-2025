@@ -1,9 +1,11 @@
 import { Flamework, Modding } from "@flamework/core";
 import Log, { Logger } from "@rbxts/log";
 import { setupLogger } from "shared/functions/logger";
+import coreCall from "utils/core-call";
 
 async function start() {
 	setupLogger();
+	coreCall("SetCore", "ResetButtonCallback", false);
 
 	Modding.registerDependency<Logger>(ctor => Log.ForContext(ctor));
 
