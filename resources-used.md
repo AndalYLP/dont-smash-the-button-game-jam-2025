@@ -29,8 +29,8 @@ more detailed list [here](./package.json)
 - "@rbxts/t": "^3.1.1",
 - "@rbxts/validate-tree": "2.0.2",
 
-## Models:
+## Models & sfx
 
-- button click sfx: 7969970804
-- sky: 12612655684
+- button click sfx: 7969970804 (roblox store)
+- sky: 12612655684 (roblox store)
 - rift: [patreon](https://www.patreon.com/posts/raigo-86522924?utm_medium=clipboard_copy&utm_source=copyLink&utm_campaign=postshare_fan&utm_content=web_share) - @1nofree bought it, Yuruzuu allows to use his vfx for games (https://www.patreon.com/yuruzuu/about)
