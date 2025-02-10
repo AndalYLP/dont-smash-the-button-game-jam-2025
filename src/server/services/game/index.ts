@@ -115,13 +115,13 @@ export class GameService {
 
 		this.sendDialogWait(player, 4, "...", 0.02, true);
 
-		task.wait(3);
+		task.wait(2.5);
 
-		this.sendDialogWait(player, 4, "You found it...", 0.02, true);
+		this.sendDialogWait(player, 4, "You found it...", 0.03, true);
 
-		task.wait(3);
+		task.wait(2.5);
 
-		this.sendDialogWait(player, 4, "Just go...", 0.02, true);
+		this.sendDialogWait(player, 4, "Just go...", 0.04, true);
 
 		task.wait(1);
 

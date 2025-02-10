@@ -46,14 +46,14 @@ export class ButtonComponent
 
 		this.dialogController.sendDialogWait(
 			2,
-			'Ok, you can go back to the normal "world".',
+			'Alright, you can return to the "normal" world now.',
 			0.02,
 			true,
 		);
 
-		task.wait(3);
+		task.wait(2.5);
 
-		this.dialogController.sendDialogWait(2, "Good luck, you will need it.", 0.02);
+		this.dialogController.sendDialogWait(2, "Good luck... you're going to need it.", 0.03);
 	}
 
 	private onClick(): void {
@@ -66,11 +66,16 @@ export class ButtonComponent
 
 		task.wait(10);
 
-		this.dialogController.sendDialogWait(3, "Thought it would be easy?", 0.02, true);
+		this.dialogController.sendDialogWait(
+			3,
+			"Did you really think it would be that easy?",
+			0.02,
+			true,
+		);
 
 		task.wait(2);
 
-		this.dialogController.sendDialogWait(3, "Good luck finding the real portal.", 0.02);
+		this.dialogController.sendDialogWait(3, "Good luck finding the real portal...", 0.03);
 	}
 
 	public onStart(): void {
