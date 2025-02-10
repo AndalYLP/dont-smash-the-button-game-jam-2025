@@ -6,12 +6,19 @@ interface ClientToServerEvents {
 	store: {
 		start: () => void;
 	};
+	game: {
+		ready: () => void;
+	};
 }
 
 interface ServerToClientEvents {
 	store: {
 		dispatch: (actions: Array<BroadcastAction>) => void;
 		hydrate: (state: SerializedSharedState) => void;
+	};
+	game: {
+		dialog: (dialogId: number, text: string, speed: number, continues?: boolean) => void;
+		end: (record: number) => void;
 	};
 }
 

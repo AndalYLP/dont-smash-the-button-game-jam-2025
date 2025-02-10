@@ -9,13 +9,13 @@ export function Blink(): React.ReactNode {
 
 	useEventListener(blink, () => {
 		motion.spring(1, {
-			frequency: 0.075,
+			frequency: 0.03,
 		} satisfies SpringOptions);
 
 		task.wait(1);
 
 		motion.spring(0, {
-			frequency: 0.075,
+			frequency: 0.03,
 		} satisfies SpringOptions);
 	});
 

@@ -16,7 +16,7 @@ interface LeaderstatEntry<T extends keyof LeaderstatValueTypes = keyof Leadersta
 	ValueType: T;
 }
 
-type Leaderstats = "Points" | "Test";
+type Leaderstats = "Time" | "Test";
 
 type LeaderstatValue = Instances[keyof LeaderstatValueTypes];
 
@@ -30,7 +30,7 @@ export class LeaderstatsService implements OnInit, OnPlayerJoin {
 
 	/** @ignore */
 	public onInit(): void {
-		this.registerStat("Points", "IntValue", "balance.points");
+		this.registerStat("Time", "IntValue", "balance.points");
 	}
 
 	public getStatObject(player: Player, statName: Leaderstats): LeaderstatValue | undefined {
