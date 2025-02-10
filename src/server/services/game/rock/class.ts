@@ -43,7 +43,7 @@ export class Rock {
 		this.instance.Parent = Workspace;
 
 		const target =
-			this.target ?? this.character.HumanoidRootPart.CFrame.mul(new CFrame(0, -5, -30));
+			this.target ?? this.character.HumanoidRootPart.CFrame.mul(new CFrame(0, -10, -20));
 
 		this.instance.CFrame = CFrame.lookAt(this.instance.Position, target.Position);
 
