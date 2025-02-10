@@ -2,6 +2,7 @@ import { BaseComponent, Component } from "@flamework/components";
 import { OnStart } from "@flamework/core";
 import { Logger } from "@rbxts/log";
 import Signal from "@rbxts/signal";
+import { ShakeController } from "client/controllers/shake";
 
 interface ButtonModel extends Model {
 	Button: MeshPart;
@@ -22,7 +23,10 @@ export class ButtonComponent
 {
 	private readonly clicker!: ClickDetector;
 
-	constructor(private readonly logger: Logger) {
+	constructor(
+		private readonly logger: Logger,
+		private readonly shakeController: ShakeController,
+	) {
 		super();
 		logger.Info("loaded");
 
@@ -30,6 +34,7 @@ export class ButtonComponent
 	}
 
 	private onClick(): void {
+		this.shakeController.shakeCamera(5, 0.1, 6);
 		blink.Fire();
 	}
 
