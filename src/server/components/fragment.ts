@@ -6,7 +6,7 @@ import { GameService } from "server/services/game";
 	tag: "Fragment",
 })
 export class FragmentComponent extends BaseComponent<object, BasePart> implements OnStart {
-	public static maxScale = 7;
+	public static maxScale = 10;
 	public static minScale = 1.5;
 
 	private readonly originalSize: Vector3;
