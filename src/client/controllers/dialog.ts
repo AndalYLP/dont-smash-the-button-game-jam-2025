@@ -37,6 +37,7 @@ export class DialogController implements OnStart {
 
 		task.wait(2.5);
 
+		if (!SoundService.FindFirstChild("pre")) return;
 		const effect = new Instance("ReverbSoundEffect", SoundService.pre);
 		this.sendDialogWait(1, "But if you don't...", 0.08, true);
 
