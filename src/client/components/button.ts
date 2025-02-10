@@ -43,7 +43,7 @@ export class ButtonComponent
 
 		this.dialogController.sendDialogWait(2, "...", 0.3, true);
 
-		task.wait(5);
+		task.wait(4);
 
 		this.dialogController.sendDialogWait(
 			2,
