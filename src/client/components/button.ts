@@ -66,16 +66,11 @@ export class ButtonComponent
 
 		task.wait(10);
 
-		this.dialogController.sendDialogWait(
-			3,
-			"Didn't tell you, but if you really want to escape",
-			0.02,
-			true,
-		);
+		this.dialogController.sendDialogWait(3, "Thought it would be easy?", 0.02, true);
 
 		task.wait(2);
 
-		this.dialogController.sendDialogWait(3, "You will need to find the real portal.", 0.02);
+		this.dialogController.sendDialogWait(3, "Good luck finding the real portal.", 0.02);
 	}
 
 	public onStart(): void {
