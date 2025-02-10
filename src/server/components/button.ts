@@ -1,6 +1,7 @@
 import { BaseComponent, Component } from "@flamework/components";
 import { OnStart } from "@flamework/core";
 import { Logger } from "@rbxts/log";
+import { GameService } from "server/services/game";
 
 interface ButtonModel extends Model {
 	Button: MeshPart;
@@ -20,7 +21,10 @@ export class ButtonComponent
 {
 	private readonly clicker!: ClickDetector;
 
-	constructor(private readonly logger: Logger) {
+	constructor(
+		private readonly logger: Logger,
+		private readonly gameService: GameService,
+	) {
 		super();
 		logger.Info("loaded");
 
@@ -39,9 +43,12 @@ export class ButtonComponent
 		HitBox.PivotTo(newLocation);
 	}
 
-	private onClick(_player: Player): void {
+	private onClick(player: Player): void {
 		this.moveButton("in");
 		this.instance.SFX.Play();
+
+		task.wait(1);
+		this.gameService.Start(player);
 
 		task.wait(5);
 		this.moveButton("out");
