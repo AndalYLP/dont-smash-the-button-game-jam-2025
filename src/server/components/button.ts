@@ -48,7 +48,6 @@ export class ButtonComponent
 		this.moveButton("in");
 		this.instance.SFX.Play();
 
-		task.wait(1);
 		const connection = events.game.ready.connect(() => {
 			this.gameService.Start(player);
 
