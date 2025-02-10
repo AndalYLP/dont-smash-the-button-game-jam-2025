@@ -16,6 +16,9 @@ interface ServerToClientEvents {
 		dispatch: (actions: Array<BroadcastAction>) => void;
 		hydrate: (state: SerializedSharedState) => void;
 	};
+	game: {
+		dialog: (dialogId: number, text: string, speed: number, continues?: boolean) => void;
+	};
 }
 
 export const globalEvents = Networking.createEvent<ClientToServerEvents, ServerToClientEvents>();
