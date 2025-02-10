@@ -33,3 +33,8 @@ interface Lighting {
 		"Purple Nebula": Sky;
 	};
 }
+
+interface SoundService {
+	pre: Sound;
+	post: Sound;
+}

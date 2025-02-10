@@ -1,6 +1,7 @@
 import { BaseComponent, Component } from "@flamework/components";
 import { OnStart } from "@flamework/core";
 import { Logger } from "@rbxts/log";
+import { SoundService } from "@rbxts/services";
 import Signal from "@rbxts/signal";
 import { DialogController } from "client/controllers/dialog";
 import { ShakeController } from "client/controllers/shake";
@@ -54,6 +55,8 @@ export class ButtonComponent
 		task.wait(2.5);
 
 		this.dialogController.sendDialogWait(2, "Good luck... you're going to need it.", 0.03);
+
+		SoundService.post.Play();
 	}
 
 	private onClick(): void {
@@ -85,6 +88,7 @@ export class ButtonComponent
 
 			this.logger.Info("clicked client side.");
 
+			SoundService.pre.Destroy();
 			this.onClick();
 		});
 	}

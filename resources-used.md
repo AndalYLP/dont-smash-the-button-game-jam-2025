@@ -32,5 +32,8 @@ more detailed list [here](./package.json)
 ## Models & sfx
 
 - button click sfx: 7969970804 (roblox store)
+- rift sfx: 5033884807 (roblox store)
 - sky: 12612655684 (roblox store)
+- ambient post button press: 126822280868789 (roblox store)
+- ambient pre button press: 1843404009 (roblox store)
 - rift: [patreon](https://www.patreon.com/posts/raigo-86522924?utm_medium=clipboard_copy&utm_source=copyLink&utm_campaign=postshare_fan&utm_content=web_share) - @1nofree bought it, Yuruzuu allows to use his vfx for games (https://www.patreon.com/yuruzuu/about)

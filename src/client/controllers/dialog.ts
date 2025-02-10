@@ -1,5 +1,6 @@
 import { Controller, OnStart } from "@flamework/core";
 import { Logger } from "@rbxts/log";
+import { SoundService } from "@rbxts/services";
 import { LocalPlayer } from "client/constants/player";
 import { events } from "client/network";
 import { newDialog } from "client/ui/components/dialog";
@@ -36,9 +37,11 @@ export class DialogController implements OnStart {
 
 		task.wait(2.5);
 
+		const effect = new Instance("ReverbSoundEffect", SoundService.pre);
 		this.sendDialogWait(1, "But if you don't...", 0.08, true);
 
 		task.wait(4);
+		effect.Destroy();
 
 		this.sendDialogWait(1, "You can always press the red button to let me know! 😊", 0.02);
 	}
